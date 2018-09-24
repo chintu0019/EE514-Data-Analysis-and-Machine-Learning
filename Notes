@@ -1,0 +1,111 @@
+24-Sep-18
+Slides available in YouTube:  https://www.youtube.com/watch?v=uPXv79UltKk&index=2&t=0s&list=PLRmSzDzkNJgIGahWmlRV-OclD6-FowK8F
+
+- basic definitions
+    - data analytics
+    - machine learning
+    - data science
+
+- Practical applications of the technologies taught in this module
+    - recommender systems
+    - clickstream analysis
+    - image recognition
+    - video processing
+    - automatic speech recognition
+    - predictive analysis
+    - NLP-sentiment analysis
+
+Module overview (ref: YouTube Slides)
+- part 1
+    - data management
+    - storage
+    - visualization
+- part 2
+    - machine learning
+    - predictive analysis
+- intro to python for data analytics
+- data summerization
+- unsupervised ML 
+- supervised ML principles
+- supervised ML algorithms
+- representation learning and deep learning
+
+TO LEARN:
+- mathematics
+    - Linear algebra
+    - calculus (multivariable)
+    - probability
+
+Kevin contact:
+room s361
+
+Grading:
+25% continuous assessment
+- individual projects
+- visualization and predictive analysis
+- report, code etc to be submitted 
+75% exam
+
+Introduction to Python 
+- basics
+    - variables and types
+    - type conversions
+    - basic operations
+        - ** for power (^) - x**2 
+    - containers
+        - list 
+            - mutable - can be changed
+            - indexed from 0
+            - can contain objs of any type
+            -> x = []
+            - last item in list x[-1]
+            - slicing 
+                - first three items = x[0:3] 0r x[:3]
+        
+        - dict
+            - like hashmaps or associative arrays
+            - key -> value map
+            -> y = {'key' : value}
+
+        - also has tuples and sets
+    - to leave a block empty, use keyword "pass"
+    - functions
+        - can handle multiple arguments - variadic arguments (*args)
+            - def func_name (*args)
+    - LOOKUP OO aspects in python
+    - constructors inside classes
+        - special method 
+        - __name__ 
+        - will have to use the keyword "self" explicitly as the first argument to the methods in the class
+    - module is the .py file - can import to different file
+    - package
+        - collection of modules
+            - create folder with a name 
+            - add __init__.py file
+    - LOOKUP exceptions
+    - always prefer to use try-except block
+        - example when trying to check if the file exists, use try-except instead of if-else
+    - list comprehensions
+        - can avoid loops
+    - LOOKUP generators
+        - "yield" keyword
+        - transfer control from inside a loop to the caller
+    - standard and external libraries
+
+    - Example - Wikipedia scraper
+    
+Numerical programming with numpy
+- optimized for numerical computation
+- single data type per array
+- LOOKUP numpy methods
+- stride is the third index in the list - can be used to specify the depth
+    - negative stride can be used for reversal
+- matrix arithmetic operations
+    - uses python operations
+    - matrix multiplications - use @
+    - * does element wise multiplications
+- linear algebra -np.linalg
+- LOOKUP eigen values, matrix, stacking, concatenation
+- NEXTCLASS Mathematics refresher for ML
+----------------------------------------------------------------------------------------------------------------------
+
