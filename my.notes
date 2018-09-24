@@ -1,4 +1,5 @@
-24-Sep-18
+! 24-Sep-18 !
+
 Slides available in YouTube:  https://www.youtube.com/watch?v=uPXv79UltKk&index=2&t=0s&list=PLRmSzDzkNJgIGahWmlRV-OclD6-FowK8F
 
 - basic definitions
@@ -15,7 +16,7 @@ Slides available in YouTube:  https://www.youtube.com/watch?v=uPXv79UltKk&index=
     - predictive analysis
     - NLP-sentiment analysis
 
-Module overview (ref: YouTube Slides)
+Module overview (ref: YouTube Slides):
 - part 1
     - data management
     - storage
@@ -24,7 +25,7 @@ Module overview (ref: YouTube Slides)
     - machine learning
     - predictive analysis
 - intro to python for data analytics
-- data summerization
+- data summarization
 - unsupervised ML 
 - supervised ML principles
 - supervised ML algorithms
@@ -33,7 +34,7 @@ Module overview (ref: YouTube Slides)
 TO LEARN:
 - mathematics
     - Linear algebra
-    - calculus (multivariable)
+    - calculus (multivariate)
     - probability
 
 Kevin contact:
@@ -46,7 +47,7 @@ Grading:
 - report, code etc to be submitted 
 75% exam
 
-Introduction to Python 
+Introduction to Python:
 - basics
     - variables and types
     - type conversions
@@ -57,7 +58,7 @@ Introduction to Python
             - mutable - can be changed
             - indexed from 0
             - can contain objs of any type
-            -> x = []
+            => x = []
             - last item in list x[-1]
             - slicing 
                 - first three items = x[0:3] 0r x[:3]
@@ -65,14 +66,15 @@ Introduction to Python
         - dict
             - like hashmaps or associative arrays
             - key -> value map
-            -> y = {'key' : value}
+            => y = {'key' : value}
 
         - also has tuples and sets
+
     - to leave a block empty, use keyword "pass"
     - functions
         - can handle multiple arguments - variadic arguments (*args)
             - def func_name (*args)
-    - LOOKUP OO aspects in python
+    - TODO: OO aspects in python
     - constructors inside classes
         - special method 
         - __name__ 
@@ -82,22 +84,22 @@ Introduction to Python
         - collection of modules
             - create folder with a name 
             - add __init__.py file
-    - LOOKUP exceptions
+    - TODO: exceptions
     - always prefer to use try-except block
         - example when trying to check if the file exists, use try-except instead of if-else
     - list comprehensions
         - can avoid loops
-    - LOOKUP generators
+    - TODO: generators
         - "yield" keyword
         - transfer control from inside a loop to the caller
     - standard and external libraries
 
     - Example - Wikipedia scraper
     
-Numerical programming with numpy
+Numerical programming with numpy:
 - optimized for numerical computation
 - single data type per array
-- LOOKUP numpy methods
+- TODO: numpy methods
 - stride is the third index in the list - can be used to specify the depth
     - negative stride can be used for reversal
 - matrix arithmetic operations
@@ -105,7 +107,7 @@ Numerical programming with numpy
     - matrix multiplications - use @
     - * does element wise multiplications
 - linear algebra -np.linalg
-- LOOKUP eigen values, matrix, stacking, concatenation
-- NEXTCLASS Mathematics refresher for ML
-----------------------------------------------------------------------------------------------------------------------
+- TODO: eigen values, matrix, stacking, concatenation
+- #NEXTCLASS# Mathematics refresher for ML
+---------------------------------------------------------------------------------------------------------------
 
