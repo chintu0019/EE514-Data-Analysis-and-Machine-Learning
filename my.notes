@@ -113,7 +113,7 @@ Numerical programming with numpy:
 
 ! 1-Oct-2018 !
 
---- Mathematics for ML ---
+Mathematics for ML:
 
 - Sets
     -   cardinality is the number of element in the set 
@@ -168,12 +168,112 @@ Numerical programming with numpy:
         - gradient descent
         - optimizing probabilities
             - log probabilities
+#Note# quiz in loop
 
+Data Interpretation, Management and storage:
 
-     
-    
-
-
-
-
-
+- Datasets
+    - types of data
+        - Series (1D)
+        - Tables
+        - Trees
+        - Graphs
+        - Text 
+        - Multimedia
+    - two types of information in Datasets
+        - metadata - data about data. usually contains semantics (meaning)
+        - data
+            - actual value
+    - scales of measurement - four (Stevens, 1946) 
+        - nominal
+            - just 'name'
+            - also called "categorial variables"
+            - valid operations
+                - = and !=
+            - permissible statistics
+                - constructors
+                - modes
+                - contingency correlation
+        - ordinal
+            - rank-ordered
+            - valid operations
+                - =, !=, <, >, <=, >=
+            - permissible statistics
+                - median
+                - percentiles
+                - spearman correlation
+        - quantitative variables    
+            - interval
+                - distance between attributes does have meaning but there is no absolute zero
+                - examples
+                    - Date 
+                    - temperature in degrees F
+                    - geometric point
+                - valid operations
+                    - =, != ........
+            - ratio
+                - same as interval but with a meaningful absolute zero
+                - examples
+                    - length, mass, temperature in Kelvin
+                    - age, weight, weight
+                - valid operations
+                    - .............
+    - hierarchy of scales of measurement
+    - data as vectors
+        - bivariate - 2D space
+        - multivariate - multidimensional space (ND) 
+    - data as Matrices
+        - stack quantitative data vectors as matrices
+        - data in row, type in column - for python
+        - one-hot encoding
+            - build "vocabulary" - assign values for unique data
+            - assign 1 in matrix when the value appears
+            - will be useful 
+                - to calculate the occurrences
+                - most used words
+                - least used words
+                - average use of a word
+            - used in 
+                - similarity of the documents
+                - cluster similar documents
+                - topic modelling (PCA/LSI)
+                - visualization (t-PSE)
+    - multimedia data
+        - images can be represented as
+            - 3D tensors
+            - functions
+            - vectors
+            - compressed (JPEG, PNG)
+            - automatically extracted features
+         - Videos
+            - same as image but with time 
+    - data storage and I/O
+        - files
+        - databases
+        - streams
+        - structured data
+            - tables
+            - graphs 
+            - hierarchies
+            - relational databases
+        - semi-structured and unstructured
+            - natural language plain text 
+            - HTML files
+            - word docs
+    - file formats
+        - binary formats
+            - types
+                - 32 bit float (4 bytes)
+                - 16 bit integer (2 bytes)
+            - properties
+                - compact
+                - high performance I/O
+                - not human readable 
+                - need to worry about integer sizes, endiness (little-indian, big-indian), signed/unsigned
+        - plain text formats (ASCII and Unicode)
+            - ASCII formats for tabular data
+                - CSV
+                - FWF (Fixed Width Format)
+                    - same as CSV but with standard width for columns  
+---------------------------------------------------------------------------------------------------------------
+        
