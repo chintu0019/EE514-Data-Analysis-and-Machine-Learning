@@ -31,11 +31,11 @@ Module overview (ref: YouTube Slides):
 - supervised ML algorithms
 - representation learning and deep learning
 
-TO LEARN:
-- mathematics
-    - Linear algebra
-    - calculus (multivariate)
-    - probability
+- TODO:
+    - mathematics
+        - Linear algebra
+        - calculus (multivariate)
+        - probability
 
 Kevin contact:
 room s361
@@ -110,4 +110,70 @@ Numerical programming with numpy:
 - TODO: eigen values, matrix, stacking, concatenation
 - #NEXTCLASS# Mathematics refresher for ML
 ---------------------------------------------------------------------------------------------------------------
+
+! 1-Oct-2018 !
+
+--- Mathematics for ML ---
+
+- Sets
+    -   cardinality is the number of element in the set 
+        - |x| or '#x'
+
+- vectors
+    - ordered list of numbers OR columns
+    - transpose of column vector is a row vector
+    - Dot product - multiply corresponding components and add products
+        - also called Inverse product or Scalar product
+        - alternative notation xᵀy 
+- TODO: 
+    - Norms:
+        - ||X|| = sqrt(xᵀx)
+        - most common norm in Euclidean norm or L₂ norm
+        - Norms and distance metrics
+
+- Matrices
+    - rectangular array of numbers
+    - transpose:
+        - (A+B)ᵀ = Aᵀ + Bᵀ
+        - identity
+        - inverse
+
+- TODO:
+    - matrix multiplication
+    - matrix-vector multiplication
+    - matrix-matrix multiplication
+    - rules of matrix multiplication
+        - examples
+    - square matrix
+        - nonsingular/invertible/nondegenerate
+        - singular/degenerate
+    - computing inverses
+    - quadratic forms
+    - positive definiteness
+        - symmetric positive definite (SPD)
+    - eigen values and eigen vectors
+        - eigenvalue decomposition
+    - derivatives
+        - exponential
+        - Logarithms
+        - Trigonometry
+    - partial derivatives
+    - gradient (inverse triangle symbol)
+    - multivariable calculus
+        - functional vs. function
+    - matrix calculus
+        - rules for matrix calculus - find gradients of functionals
+    - Optimization
+        - minimizing or maximizing
+        - gradient descent
+        - optimizing probabilities
+            - log probabilities
+
+
+     
+    
+
+
+
+
 
