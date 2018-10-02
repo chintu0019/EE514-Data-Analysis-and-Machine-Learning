@@ -1,14 +1,18 @@
 {
     "cSpell.words": [
         "Datasets",
+        "bivariate",
+        "categorial",
         "clickstream",
         "eigen",
+        "endiness",
         "functionals",
         "linalg",
         "multivariable",
         "nondegenerate",
         "nonsingular",
-        "numpy"
+        "numpy",
+        "objs"
     ],
     "cSpell.enabledLanguageIds": [
         "asciidoc",
