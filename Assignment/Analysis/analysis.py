@@ -27,7 +27,7 @@ ham_text = []
 for filename in os.listdir('../dataset/preprocessed/enron1/spam/'):
     
     #takes out newlines in the file, each line is put into the list 'lines'
-    lines = [line.rstrip('\n') for line in open('../dataset/preprocessed/enron1/spam/'+filename)]
+    lines = [line.rstrip('\n') for line in open('../dataset/preprocessed/enron1/spam/'+filename, 'r', encoding="utf8", errors='ignore')]
     
     #lines[0] gets the first line, line[0][9:] 
     #gets the substring of line[0] starting from index 9.
@@ -67,8 +67,8 @@ for filename in os.listdir('../dataset/preprocessed/enron1/spam/'):
     #the spam_text list. This is the final version of the cleaned message for this file.
     spam_text.append(temp_spam_text.strip())
             
-for filename in os.listdir('enron/ham/'):
-    lines = [line.rstrip('\n') for line in open('enron/ham/'+filename)]
+for filename in os.listdir('../dataset/preprocessed/enron1/ham/'):
+    lines = [line.rstrip('\n') for line in open('../dataset/preprocessed/enron1/ham/'+filename, 'r', encoding="utf8", errors='ignore')]
     tempsubject = lines[0][9:].lower()
     cleaned = [e for e in tempsubject.split(' ') if e.isalnum()]
     cleaned = [word for word in cleaned if word not in stop_words and word!='']
