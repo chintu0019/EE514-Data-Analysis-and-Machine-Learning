@@ -88,10 +88,10 @@ for filename in os.listdir('../dataset/preprocessed/enron1/ham/'):
             temp_ham_text+=cleaned+' '
     ham_text.append(temp_ham_text.strip())
 
-print(len(ham_subject))
-print(len(ham_text))
-print(len(spam_subject))
-print(len(spam_text))
+print('Length of ham subjects:',len(ham_subject))
+print('Length of ham messages:',len(ham_text))
+print('Length of spam subjects:',len(spam_subject))
+print('Length of spam messages:',len(spam_text))
 
 #I thought this was more useful instead of separate subject/message
 #thought of this a bit late so I kept the previous code anyway
@@ -111,7 +111,7 @@ data = pd.DataFrame({'subject':ham_subject+spam_subject,
                       'text':ham_text+spam_text,
                       'subj_text':ham_subj_text+spam_subj_text,
                       'class':[1]*len(ham_subject)+[0]*len(spam_subject)})
-print(len(data))
+print('Total length of data (ham+spam):',len(data))
 data.head()
 
 #epic feature engineering with countvectorizer - simply put, it counts the # of whatever word
