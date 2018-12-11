@@ -125,7 +125,7 @@ count_vectorizer.fit(data['subj_text'].values)
 counts = count_vectorizer.transform(data['subj_text'].values)
 
 #start making a model
-clf = LogisticRegression()
+clf = LogisticRegression(solver='lbfgs')
 
 #3-fold cross-validation of the model, 5-fold is more often used but if 3-fold performs well,
 #then your model is golden.
@@ -189,7 +189,7 @@ cleaned = ' '.join(cleaned)
 transformed = count_vectorizer.transform([cleaned])
 
 #make the model, train the model, make a prediction.
-clf = LogisticRegression()
+clf = LogisticRegression(solver='lbfgs')
 clf.fit(counts,data['class'])
 
 #probabilities for choosing a class. first in the array is 0's prob, next is 1's prob.
