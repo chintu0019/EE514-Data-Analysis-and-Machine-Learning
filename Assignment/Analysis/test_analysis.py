@@ -1,7 +1,10 @@
-
 import os
 import numpy as np
 import pandas as pd
+import plotly.plotly as py
+import matplotlib.pyplot as plt
+from glob import iglob
+from collections import Counter
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import confusion_matrix, f1_score
@@ -29,62 +32,85 @@ def cleanme(dirty_text):
     clean_text = ' '.join(clean_text)
     return clean_text
 
-#iterates through each file in enron/spam directory
-for filename in os.listdir('../dataset/preprocessed/enron1/spam/'):
-    
-    #takes out newlines in the file, each line is put into the list 'lines'
-    lines = [line.rstrip('\n') for line in open('../dataset/preprocessed/enron1/spam/'+filename, 'r', encoding="utf8", errors='ignore')]
-    
-    #lines[0] gets the first line, line[0][9:] 
-    #gets the substring of line[0] starting from index 9.
-    #lower() makes it all lowercase
-    tempsubject = lines[0][9:].lower()
-    
-    clean_text = cleanme(tempsubject)
-    
-    if len(clean_text)>0:
-        spam_subject.append(clean_text)
-    else:
-        spam_subject.append(' ')#doing this just to have equal length vectors
-    
-    temp_spam_text = ' '#placeholder for a single message content
-    
-    #so far we have just dealt with the first line - the subject line.
-    #now we move onto the rest - the message/content/body.
-    for line in lines[1:]:
-        temptext = line.lower()
-        clean_text = [e for e in temptext.split(' ') if e.isalnum()]
-        clean_text = [word for word in clean_text if word not in stop_words and word!='']
-        clean_text = ' '.join(clean_text)
-        if len(clean_text)>0:
-            #put the whole message together by appending each clean_text line to the previous ones
-            temp_spam_text+=clean_text + ' '
-    
-    #finally put the clean_text entire message with no blank spaces at the ends into
-    #the spam_text list. This is the final version of the clean_text message for this file.
-    spam_text.append(temp_spam_text.strip())
-            
-for filename in os.listdir('../dataset/preprocessed/enron1/ham/'):
-    lines = [line.rstrip('\n') for line in open('../dataset/preprocessed/enron1/ham/'+filename, 'r', encoding="utf8", errors='ignore')]
-    tempsubject = lines[0][9:].lower()
-    clean_text = cleanme(tempsubject)
-    if len(clean_text)>0:
-        ham_subject.append(clean_text)
-    else:
-        ham_subject.append(' ')
-    
-    temp_ham_text = ' '
-    for line in lines[1:]:
-        temptext = line.lower()
-        clean_text = cleanme(temptext)
-        if len(clean_text)>0:
-            temp_ham_text+=clean_text+' '
-    ham_text.append(temp_ham_text.strip())
+def top_20_words(data_set):
+    temp_data = ' '.join(data_set)
+    # split() returns list of all the words in the string 
+    split_it = temp_data.split() 
+    # Pass the split_it list to instance of Counter class. 
+    list_counter = Counter(temp_data) 
+    # most_common() produces k frequently encountered 
+    # input values and their respective counts. 
+    most_occur = list_counter.most_common(20)
+    print(most_occur)
+    return most_occur
+
+for foldername in iglob('../dataset/preprocessed/*', recursive=False): 
+    if os.path.isdir(foldername):
+        #iterates through each file in enron/spam directory
+        for filename in os.listdir(foldername+'/spam/'):
+            #takes out newlines in the file, each line is put into the list 'lines'
+            lines = [line.rstrip('\n') for line in open(foldername+'/spam/'+filename, 'r', encoding="utf8", errors='ignore')]
+            #lines[0] gets the first line, 
+            # line[0][9:] gets the substring of line[0] starting from index 9.
+            #lower() makes it all lowercase
+            tempsubject = lines[0][9:].lower()
+            clean_text = cleanme(tempsubject)
+            if len(clean_text)>0:
+                spam_subject.append(clean_text)
+            else:
+                spam_subject.append(' ')#doing this just to have equal length vectors
+            temp_spam_text = ' '#placeholder for a single message content
+            #so far we have just dealt with the first line - the subject line.
+            #now we move onto the rest - the message/content/body.
+            for line in lines[1:]:
+                temptext = line.lower()
+                clean_text = [e for e in temptext.split(' ') if e.isalnum()]
+                clean_text = [word for word in clean_text if word not in stop_words and word!='']
+                clean_text = ' '.join(clean_text)
+                if len(clean_text)>0:
+                    #put the whole message together by appending each clean_text line to the previous ones
+                    temp_spam_text+=clean_text + ' '
+            #finally put the clean_text entire message with no blank spaces at the ends into
+            #the spam_text list. This is the final version of the clean_text message for this file.
+            spam_text.append(temp_spam_text.strip())
+
+for foldername in iglob('../dataset/preprocessed/*', recursive=False): 
+    if os.path.isdir(foldername):            
+        for filename in os.listdir(foldername+'/ham/'):
+            lines = [line.rstrip('\n') for line in open(foldername+'/ham/'+filename, 'r', encoding="utf8", errors='ignore')]
+            tempsubject = lines[0][9:].lower()
+            clean_text = cleanme(tempsubject)
+            if len(clean_text)>0:
+                ham_subject.append(clean_text)
+            else:
+                ham_subject.append(' ')
+
+            temp_ham_text = ' '
+            for line in lines[1:]:
+                temptext = line.lower()
+                clean_text = cleanme(temptext)
+                if len(clean_text)>0:
+                    temp_ham_text+=clean_text+' '
+            ham_text.append(temp_ham_text.strip())
 
 print('Length of ham subjects:',len(ham_subject))
 print('Length of ham messages:',len(ham_text))
 print('Length of spam subjects:',len(spam_subject))
 print('Length of spam messages:',len(spam_text))
+
+ham_subject_freq = top_20_words(ham_subject)
+ham_text_freq = top_20_words(ham_text)
+spam_subject_freq = top_20_words(spam_subject)
+spam_text_freq = top_20_words(spam_text)
+
+""" objects = ('ham subject', 'ham text' , 'spam subject', 'spam text')
+y_pos = np.arange(len(objects))
+frequencies = [ham_subject_freq,ham_text_freq,spam_subject_freq,spam_text_freq]
+plt.bar(y_pos, frequencies, align='center', alpha=0.5)
+plt.xticks(y_pos, objects)
+plt.ylabel('Top 20 words')
+plt.title('Top 20 words')
+plt.show() """
 
 #I thought this was more useful instead of separate subject/message
 #thought of this a bit late so I kept the previous code anyway
@@ -118,7 +144,8 @@ count_vectorizer.fit(data['subj_text'].values)
 counts = count_vectorizer.transform(data['subj_text'].values)
 
 #start making a model
-clf = LogisticRegression(solver='lbfgs')
+""" clf = LogisticRegression(solver='lbfgs') """
+clf = LogisticRegression(solver='liblinear')
 
 #3-fold cross-validation of the model, 5-fold is more often used but if 3-fold performs well,
 #then your model is golden.
@@ -193,7 +220,8 @@ clean_text = cleanme(temptext)
 transformed = count_vectorizer.transform([clean_text])
 
 #make the model, train the model, make a prediction.
-clf = LogisticRegression(solver='lbfgs')
+""" clf = LogisticRegression(solver='lbfgs') """
+clf = LogisticRegression(solver='liblinear')
 clf.fit(counts,data['class'])
 
 #probabilities for choosing a class. first in the array is 0's prob, next is 1's prob.
